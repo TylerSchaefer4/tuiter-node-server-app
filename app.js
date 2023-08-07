@@ -6,6 +6,7 @@ import cors from "cors";
 import session from "express-session";
 import AuthController from "./users/auth-controller.js";
 import "dotenv/config";
+const app = express();
 
 const sessionOptions = {
   secret: "any string",
@@ -21,7 +22,6 @@ if (process.env.NODE_ENV !== "development") {
 }
 app.use(session(sessionOptions));
 
-const app = express();
 app.use(
   cors({
     credentials: true,
