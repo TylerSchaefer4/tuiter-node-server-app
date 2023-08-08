@@ -14,7 +14,7 @@ console.log("FRONTEND ENV: ", process.env.FRONTEND_URL);
 app.use(
   cors({
     credentials: true,
-    origin: process.env.FRONTEND_URL,
+    origin: "https://a5--curious-malasada-b46fc0.netlify.app",
   })
 );
 const sessionOptions = {
