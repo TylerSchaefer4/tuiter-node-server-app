@@ -7,7 +7,12 @@ import session from "express-session";
 import AuthController from "./users/auth-controller.js";
 import "dotenv/config";
 const app = express();
-
+app.use(
+  cors({
+    credentials: true,
+    origin: process.env.FRONTEND_URL,
+  })
+);
 const sessionOptions = {
   secret: "any string",
   resave: false,
@@ -21,13 +26,6 @@ if (process.env.NODE_ENV !== "development") {
   };
 }
 app.use(session(sessionOptions));
-
-app.use(
-  cors({
-    credentials: true,
-    origin: process.env.FRONTEND_URL,
-  })
-);
 
 app.use(express.json());
 TuitsController(app);
