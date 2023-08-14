@@ -53,7 +53,7 @@ console.log("FRONTEND ENV: ", process.env.FRONTEND_URL);
 app.use(
   cors({
     credentials: true,
-    origin: "https://a6--curious-malasada-b46fc0.netlify.app/",
+    origin: "https://a6--curious-malasada-b46fc0.netlify.app",
     // origin: "http://localhost:3000",
   })
 );
