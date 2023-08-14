@@ -3,7 +3,7 @@ import * as usersDao from "./users-dao.js";
 const AuthController = (app) => {
   const register = async (req, res) => {
     const username = req.body.username;
-    const user = usersDao.findUserByUsername(username);
+    const user = await usersDao.findUserByUsername(username);
     if (user) {
       res.sendStatus(409);
       return;
