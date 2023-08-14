@@ -57,7 +57,7 @@ const deleteUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-  const id = req.params.id;
+  const id = req.params.tid; // tid ?
   const status = await usersDao.updateUser(id, req.body);
   const user = await usersDao.findUserById(id);
   req.session["currentUser"] = user;
