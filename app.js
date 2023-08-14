@@ -6,7 +6,17 @@ import cors from "cors";
 import session from "express-session";
 import AuthController from "./users/auth-controller.js";
 import "dotenv/config";
+const app = express();
+app.use(express.json());
+console.log("NODE ENV: ", process.env.NODE_ENV);
 
+console.log("FRONTEND ENV: ", process.env.FRONTEND_URL);
+app.use(
+  cors({
+    credentials: true,
+    origin: "https://a5--curious-malasada-b46fc0.netlify.app",
+  })
+);
 const sessionOptions = {
   secret: "any string",
   resave: false,
@@ -21,15 +31,6 @@ if (process.env.NODE_ENV !== "development") {
 }
 app.use(session(sessionOptions));
 
-const app = express();
-app.use(
-  cors({
-    credentials: true,
-    origin: process.env.FRONTEND_URL,
-  })
-);
-
-app.use(express.json());
 TuitsController(app);
 AuthController(app);
 
