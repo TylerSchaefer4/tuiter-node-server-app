@@ -7,6 +7,9 @@ const createTuit = async (req, res) => {
   //   newTuit._id = new Date().getTime() + "";
   newTuit.likes = 0;
   newTuit.liked = false;
+  console.log("Tuit in API:", newTuit);
+  console.log("req.body:", req.body);
+  console.log("req:", req);
   //   tuits.push(newTuit);
   const insertedTuit = await tuitsDao.createTuit(newTuit);
 
