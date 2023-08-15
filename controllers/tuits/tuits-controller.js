@@ -7,6 +7,8 @@ const createTuit = async (req, res) => {
   //   newTuit._id = new Date().getTime() + "";
   newTuit.likes = 0;
   newTuit.liked = false;
+  newTuit.handle = req.body.handle;
+  newTuit.username = req.body.username;
   console.log("Tuit in API:", newTuit);
   console.log("req.body:", req.body);
   console.log("req:", req);
